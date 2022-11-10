@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1.4
 FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
-
+FROM ubuntu:20.04
+RUN apt-get update
+RUN apt-get upgrade -y
 WORKDIR /code
 
 COPY requirements.txt /code
